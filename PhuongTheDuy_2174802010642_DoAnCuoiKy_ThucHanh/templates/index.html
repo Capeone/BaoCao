@@ -1,0 +1,26 @@
+{% extends 'app.html' %}
+{% block content %}
+
+<!-- Page Title -->
+<h2 class="text-center text-primary mb-4">Home Page</h2>
+
+<!-- Button Container with Horizontal Layout -->
+<div class="button-container d-flex justify-content-center gap-3 mb-4">
+  <!-- Login Button -->
+  <a href="/login" class="mybtn btn btn-outline-custom px-4 py-2"><strong>Login</strong></a>
+
+  <!-- Register Button -->
+  <a href="/register" class="mybtn btn btn-outline-success px-4 py-2"><strong>Register</strong></a>
+
+  <!-- Dashboard Button -->
+  <a href="{% if session['logged_in'] %}/dashboard{% else %}/login{% endif %}" class="mybtn btn btn-outline-custom px-4 py-2"><strong>Dashboard</strong></a>
+</div>
+
+<!-- Optional message for non-logged-in users -->
+{% if not session.get('logged_in') %}
+  <div class="alert alert-warning text-center" role="alert">
+      <p>Please log in to access the Dashboard.</p>
+  </div>
+{% endif %}
+
+{% endblock %}

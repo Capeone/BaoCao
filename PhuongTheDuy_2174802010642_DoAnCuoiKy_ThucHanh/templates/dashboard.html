@@ -1,0 +1,25 @@
+{% extends 'app.html' %}
+{% block content %}
+
+<!-- Dashboard Container -->
+<div class="container mt-5">
+  <h2 class="text-center text-primary mb-4">Welcome to the Dashboard</h2>
+
+  {% if user %}
+    <!-- User Information Card -->
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h4 class="card-title text-center"><strong>User Information</strong></h4>
+        <ul class="list-unstyled">
+          <li><strong>Name:</strong> {{ user[1] }}</li>
+          <li><strong>Email:</strong> {{ user[2] }}</li>
+        </ul>
+        <div class="d-flex justify-content-center">
+          <a href="/logout" class="btn btn-dark px-4 py-2 mt-3">Logout</a>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+{% endblock %}
